@@ -25,8 +25,10 @@ public class SearchCommandExecutor implements CommandExecutor {
 
     @Override
     public void execute(Command command) {
-        List<Pair<Key,List<Attribute>>> keys = kvStoreService.search(command.getCommandParams().get(0), command.getCommandParams().get(1));
-        //iterate over pair to print result
-        System.out.println(String.join(",", keys.toString()));
+        List<Pair<Key,List<Attribute>>> pairList = kvStoreService.search(command.getCommandParams().get(0), command.getCommandParams().get(1));
+        //System.out.println(String.join(",", pairList.toString()));
+        for(Pair<Key, List<Attribute>> obj: pairList){
+            System.out.print("Key:" + obj.getKey() + " Value: " + String.join(",", obj.getValue().toString()));
+        }
     }
 }

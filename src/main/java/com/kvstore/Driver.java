@@ -18,7 +18,7 @@ public class Driver {
 
     public static void main(String[] args) {
         AttributeValueTypeFactory attributeValueTypeFactory = new AttributeValueTypeFactory();
-        KVStore kvStore = new InMemoryKVStore(attributeValueTypeFactory);
+        KVStore kvStore = new InMemoryKVStore();
         KVStoreService kvStoreService = new KVStoreServiceImpl(kvStore, attributeValueTypeFactory);
         CommandExecutorFactory commandExecutorFactory = new CommandExecutorFactory(kvStoreService);
 

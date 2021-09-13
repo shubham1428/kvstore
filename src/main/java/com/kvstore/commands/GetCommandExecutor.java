@@ -1,7 +1,7 @@
 package com.kvstore.commands;
 
-import com.practice.kvstore.entities.Attribute;
-import com.practice.kvstore.service.KVStoreService;
+import com.kvstore.entities.Attribute;
+import com.kvstore.service.KVStoreService;
 
 import java.util.List;
 
@@ -29,9 +29,10 @@ public class GetCommandExecutor implements CommandExecutor {
             System.out.println("No entry found for " + command.getCommandParams().get(0));
             return;
         }
-        for(Attribute attributePair: list){
-            System.out.print(attributePair +",");
+        System.out.println(String.join(",", list.toString()));
+        /*for(Attribute attribute: list){
+            System.out.print(attribute +",");
         }
-        System.out.println();
+        System.out.println();*/
     }
 }

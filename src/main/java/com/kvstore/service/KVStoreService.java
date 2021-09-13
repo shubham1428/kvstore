@@ -12,8 +12,7 @@ import java.util.List;
 public interface KVStoreService {
     List<Attribute> get(String key);
     List<Pair<Key,List<Attribute>>> search(String attributeKey, String attributeValue);
-    void insert(String key, List<Attribute> listOfAttributes);
-    void update(String key, List<Attribute> listOfAttributes);
-    void delete(String key);
-    List<Key> keys();
+    boolean insert(String key, List<Attribute> listOfAttributes);
+    boolean update(String key, List<Attribute> listOfAttributes);
+    boolean delete(String key);
 }

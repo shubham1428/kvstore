@@ -1,6 +1,6 @@
 package com.kvstore.commands;
 
-import com.practice.kvstore.service.KVStoreService;
+import com.kvstore.service.KVStoreService;
 
 /**
  * @author shubham.gupta

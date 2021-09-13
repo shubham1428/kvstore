@@ -1,6 +1,7 @@
 package com.kvstore.commands;
 
 import com.kvstore.service.KVStoreService;
+import sun.net.www.ParseUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,13 +17,14 @@ public class CommandExecutorFactory {
         commandExecutorMap.put(GetCommandExecutor.COMMAND_NAME, new GetCommandExecutor(kvStoreService));
         commandExecutorMap.put(SearchCommandExecutor.COMMAND_NAME, new SearchCommandExecutor(kvStoreService));
         commandExecutorMap.put(DeleteCommandExecutor.COMMAND_NAME, new DeleteCommandExecutor(kvStoreService));
-
+        commandExecutorMap.put(InsertCommandExecutor.COMMAND_NAME, new InsertCommandExecutor(kvStoreService));
     }
 
     public CommandExecutor getCommandExecutor(Command command) {
         final CommandExecutor commandExecutor = commandExecutorMap.get(command.getName());
         if (commandExecutor == null) {
-            throw new InvalidCommandException("The following command is not configured");
+            System.out.println("The following command is not configured");
+            return null;
         }
         return commandExecutor;
     }

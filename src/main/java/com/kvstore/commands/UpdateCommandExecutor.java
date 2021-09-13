@@ -28,12 +28,12 @@ public class UpdateCommandExecutor implements CommandExecutor {
     public void execute(Command command) {
         String key = command.getCommandParams().get(0);
         command.getCommandParams().remove(0);
-        List<Attribute> attributePairList = new ArrayList<>();
+        List<Attribute> attributeList = new ArrayList<>();
         for(int i=0; i<command.getCommandParams().size(); i+=2){
             AttributeKey attributeKey = new AttributeKey(command.getCommandParams().get(i));
             Object attributeValue = command.getCommandParams().get(i+1);
-            attributePairList.add(new Attribute(attributeKey, attributeValue));
+            attributeList.add(new Attribute(attributeKey, attributeValue));
         }
-        kvStoreService.update(key, attributePairList);
+        kvStoreService.update(key, attributeList);
     }
 }

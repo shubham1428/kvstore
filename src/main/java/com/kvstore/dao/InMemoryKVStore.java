@@ -11,13 +11,9 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author shubham.gupta
  */
 public class InMemoryKVStore implements KVStore {
+    //storage format can be optimised for better search functionality
     private Map<Key, List<Attribute>> keyValueMap = new ConcurrentHashMap<>();
     private Map<AttributeKey, AttributeValueType> attributeKeyAttributeValueTypeMap = new ConcurrentHashMap<>();
-    private final AttributeValueTypeFactory attributeValueTypeFactory;
-
-    public InMemoryKVStore(AttributeValueTypeFactory attributeValueTypeFactory) {
-        this.attributeValueTypeFactory = attributeValueTypeFactory;
-    }
 
     public Map<Key, List<Attribute>> getKeyValueMap() {
         return keyValueMap;
